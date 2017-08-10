@@ -10,19 +10,6 @@ public class CameraController : MonoBehaviour
     public float minThreshold = 1.0f;
 
     private GameObject[] _players;
-    //private Camera _mainCamera;
-
-    public static CameraController Instance
-    {
-        get
-        {
-            if (!instance)
-            {
-                instance = new CameraController();
-            }
-            return instance;
-        }
-    }
 
     private static CameraController instance;
 

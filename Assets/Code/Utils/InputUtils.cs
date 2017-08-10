@@ -21,6 +21,11 @@ namespace Utils
             return new Vector3(HorizontalPlayer1(), 0, VerticalPlayer1());
         }
 
+        public static bool InteractPlayer1()
+        {
+            return Input.GetButtonDown(InputName.BUTTON_INTERACT_1);
+        }
+
         private static float HorizontalPlayer2()
         {
             return Input.GetAxis(InputName.AXIS_HORIZONTAL_2);
@@ -34,6 +39,11 @@ namespace Utils
         public static Vector3 DirectionPlayer2()
         {
             return new Vector3(HorizontalPlayer2(), 0, VerticalPlayer2());
+        }
+
+        public static bool InteractPlayer2()
+        {
+            return Input.GetButtonDown(InputName.BUTTON_INTERACT_2);
         }
 
 

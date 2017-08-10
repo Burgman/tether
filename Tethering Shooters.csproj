@@ -79,8 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Camera\CameraController.cs" />
+    <Compile Include="Assets\Code\Controllers\BaseElement\Character.cs" />
     <Compile Include="Assets\Code\Controllers\ControllerPlayer1.cs" />
     <Compile Include="Assets\Code\Controllers\ControllerPlayer2.cs" />
+    <Compile Include="Assets\Code\Controllers\SpacecraftController.cs" />
     <Compile Include="Assets\Code\ScriptGameManager.cs" />
     <Compile Include="Assets\Code\Utils\Const.cs" />
     <Compile Include="Assets\Code\Utils\GameUtils.cs" />

@@ -32,6 +32,17 @@ namespace Utils
         public const float CAMERA_Y_MAX = 6;
         public const float CAMERA_Y_MIN = 0;
 
+        public const int PILOT_MAX = 4;
+
+    }
+
+    public class CharacterAttr
+    {
+        public const float CHARACTER_MAX_OXYGEN = 10;
+        public const float CHARACTER_MAX_ELECTRICITY = 20;
+
+        public const float CHARACTER_OXYGEN_CONSUME_PER_SECOND = 1;
+        public const float CHARACTER_ELECTRICITY_CONSUME_PER_MOVE = 1;
     }
 
     public class GameState
@@ -52,6 +63,8 @@ namespace Utils
         public const string AXIS_HORIZONTAL_2 = "Horizontal_P2";
         public const string AXIS_VERTICAL_1 = "Vertical_P1";
         public const string AXIS_VERTICAL_2 = "Vertical_P2";
+        public const string BUTTON_INTERACT_1 = "Interact_P1";
+        public const string BUTTON_INTERACT_2 = "Interact_P2";
 
     }
 

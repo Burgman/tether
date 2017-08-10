@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Utils;
 
 public enum BuildMode : int { DEBUG, DEV, RELEASE };
+public enum GameState : int { WAITING, INGAME, OVER};
 
 public class ScriptGameManager : MonoBehaviour
 {
@@ -23,10 +24,12 @@ public class ScriptGameManager : MonoBehaviour
     bool _readyToStart = false;
 
     //For tracking game state
-    string _gameState = GameState.STATE_WAITING;
+    public GameState _gameState = GameState.INGAME;
 
     //Build mode
     public BuildMode currentBuildMode = BuildMode.DEV;
+
+    #region MonoBehaviour Callbacks
 
     private void Awake()
     {
@@ -55,14 +58,14 @@ public class ScriptGameManager : MonoBehaviour
     {
         switch (_gameState)
         {
-            case GameState.STATE_WAITING:
+            case GameState.WAITING:
                 this.ProcessPreStartInput();
                 break;
 
-            case GameState.STATE_INGAME:
+            case GameState.INGAME:
                 break;
 
-            case GameState.STATE_OVER:
+            case GameState.OVER:
                 break;
 
             default:
@@ -71,6 +74,9 @@ public class ScriptGameManager : MonoBehaviour
 
     }
 
+    #endregion
+
+    #region Private Methods
     private void ProcessPreStartInput()
     {
         if (Input.GetKeyDown(MenuKeyCode.KEY_CODE_JOIN_1))
@@ -117,7 +123,7 @@ public class ScriptGameManager : MonoBehaviour
             }
             else if (this.currentBuildMode == BuildMode.DEV)
             {
-                GameStateDidChange(GameState.STATE_INGAME);
+                GameStateDidChange(GameState.INGAME);
                 LevelUtils.StartLevel(GameScene.SCENE_PROTOTYPE);
             }
             else if (this.currentBuildMode == BuildMode.RELEASE)
@@ -129,7 +135,7 @@ public class ScriptGameManager : MonoBehaviour
 
     }
 
-    private void GameStateDidChange(string state)
+    private void GameStateDidChange(GameState state)
     {
         _gameState = state;
     }
@@ -155,5 +161,17 @@ public class ScriptGameManager : MonoBehaviour
 
         }
     }
+
+    #endregion
+
+    #region Public Methods
+
+    public void HandlePlayerOxygenRunOut(GameObject o)
+    {
+        //TODO: handle deactive object
+    }
+
+    #endregion
+
 
 }

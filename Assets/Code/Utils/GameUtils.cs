@@ -6,17 +6,30 @@ namespace Utils
 {
     public class GameUtils
     {
-        public static float GetMaxDistanceBetweenPlayers(GameObject[] players) {
+        public static float GetMaxDistanceBetweenPlayers(GameObject[] players)
+        {
             float max = 0;
             Vector3 root = players[0].transform.position;
-            for (int i = 1; i < players.Length; i++) {
+            for (int i = 1; i < players.Length; i++)
+            {
                 Vector3 other = players[i].transform.position;
                 float distance = (other - root).magnitude;
-                if ( distance > max) {
+                if (distance > max)
+                {
                     max = distance;
                 }
             }
             return max;
+        }
+
+        public static bool CheckIfObjectIsPlayerObject(GameObject o)
+        {
+            if (o.tag.Substring(o.tag.Length - 1) == "Player")
+            {
+                return true;
+            }
+
+            return false;
         }
 
     }
